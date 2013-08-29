@@ -6,9 +6,8 @@ public class PrimeFactors
   {
     Scanner keyInput = new Scanner(System.in);
     int userNum = 0;
-    int halfNum = userNum / 2;
+    String primeString = new String(" ");
     int primeCounter = 0;
-    String primeString = "";
     
     System.out.print("Enter a number: ");
     userNum = keyInput.nextInt();
@@ -18,7 +17,8 @@ public class PrimeFactors
       System.out.print("Enter a number: ");
       userNum = keyInput.nextInt();
     }
-    
+    int halfNum = userNum / 2;
+        
     for (int i = 0; i < halfNum; i++)
     {
       if (i % 2 != 0 && i % 3 != 0)
@@ -35,20 +35,22 @@ public class PrimeFactors
       }
     }
     
-    String [] primeArray = primeString.split(" ");
-    int [] intArray = new int[primeArray.length]
+    String [] primeArray = new String[primeCounter];
+    primeArray = primeString.split(" ");
+    int [] intArray = new int[primeArray.length];
     
     for (int i = 0; i < primeArray.length; i++)
+    {
       intArray[i] = Integer.parseInt(primeArray[i]);
+    }
     
-    System.out.print("The Prime Factors are: );
+    System.out.println("The Prime Factors are: ");
     for (int k = 0; k < intArray.length; k++)
     {
-      if (userNum % intArray[i] == 0)
+      if (userNum % intArray[k] == 0)
       {
-        System.out.print(intArray[i] + " ");
+        System.out.print(intArray[k] + " ");
       }
-    }
+    } 
   } // end of main method
 }
-
