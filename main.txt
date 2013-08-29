@@ -23,7 +23,7 @@ public class PrimeFactors
     {
       if (i % 2 != 0 && i % 3 != 0)
       {
-        for (int j = 2; j < Math.sqrt(halfNum); j++)
+        for (int j = 2; j < Math.sqrt(halfNum); j++) // begin troubleshooting here
         {
           if (i % j != 0)
           {
