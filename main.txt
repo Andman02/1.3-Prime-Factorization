@@ -1,1 +1,54 @@
-random stuff
+import java.util.Scanner;
+
+public class PrimeFactors
+{
+  public static void main( String args[] )
+  {
+    Scanner keyInput = new Scanner(System.in);
+    int userNum = 0;
+    int halfNum = userNum / 2;
+    int primeCounter = 0;
+    String primeString = "";
+    
+    System.out.print("Enter a number: ");
+    userNum = keyInput.nextInt();
+    
+    while (userNum < 0)
+    {
+      System.out.print("Enter a number: ");
+      userNum = keyInput.nextInt();
+    }
+    
+    for (int i = 0; i < halfNum; i++)
+    {
+      if (i % 2 != 0 && i % 3 != 0)
+      {
+        for (int j = 2; j < Math.sqrt(halfNum); j++)
+        {
+          if (i % j != 0)
+          {
+            primeString += i;
+            primeString += " ";
+            primeCounter++;
+          }
+        }
+      }
+    }
+    
+    String [] primeArray = primeString.split(" ");
+    int [] intArray = new int[primeArray.length]
+    
+    for (int i = 0; i < primeArray.length; i++)
+      intArray[i] = Integer.parseInt(primeArray[i]);
+    
+    System.out.print("The Prime Factors are: );
+    for (int k = 0; k < intArray.length; k++)
+    {
+      if (userNum % intArray[i] == 0)
+      {
+        System.out.print(intArray[i] + " ");
+      }
+    }
+  } // end of main method
+}
+
