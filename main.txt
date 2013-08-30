@@ -45,11 +45,11 @@ public class PrimeFactors
     }
     
     System.out.println("The Prime Factors are: ");
-    for (int k = 0; k < intArray.length; k++)
+    for (int i = 0; i < intArray.length; i++)
     {
-      if (userNum % intArray[k] == 0)
+      if (userNum % intArray[i] == 0)
       {
-        System.out.print(intArray[k] + " ");
+        System.out.print(intArray[i] + " ");
       }
     } 
   } // end of main method
