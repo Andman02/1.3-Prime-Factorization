@@ -6,8 +6,6 @@ public class PrimeFactors
   {
     Scanner keyInput = new Scanner(System.in);
     int userNum = 0;
-    String primeString = new String(" ");
-    int primeCounter = 0;
     
     System.out.print("Enter a number: ");
     userNum = keyInput.nextInt();
@@ -17,40 +15,28 @@ public class PrimeFactors
       System.out.print("Enter a number: ");
       userNum = keyInput.nextInt();
     }
-    int halfNum = userNum / 2;
-        
-    for (int i = 0; i < halfNum; i++)
+    
+    int [] primeArray = new int[userNum];
+    int j = 0;
+    
+    for (int i = 2; i < userNum; i++)
     {
-      if (i % 2 != 0 && i % 3 != 0)
-      {
-        for (int j = 2; j < Math.sqrt(halfNum); j++) // begin troubleshooting here
-        {
-          if (i % j != 0)
-          {
-            primeString += i;
-            primeString += " ";
-            primeCounter++;
-          }
-        }
-      }
+    	if (userNum % i == 0)
+    	{
+    		primeArray[j] = i;
+    		j++;
+    		userNum = userNum / i;
+    		i = 2;
+    		
+    	}
     }
+    primeArray[j] = userNum;
     
-    String [] primeArray = new String[primeCounter];
-    primeArray = primeString.split(" ");
-    int [] intArray = new int[primeArray.length];
-    
-    for (int i = 0; i < primeArray.length; i++)
+    int x = 0;
+    while (primeArray[x] > 0)
     {
-      intArray[i] = Integer.parseInt(primeArray[i]);
+    	System.out.print(primeArray[x] + ", ");
+    	x++;
     }
-    
-    System.out.println("The Prime Factors are: ");
-    for (int i = 0; i < intArray.length; i++)
-    {
-      if (userNum % intArray[i] == 0)
-      {
-        System.out.print(intArray[i] + " ");
-      }
-    } 
-  } // end of main method
+ } // end of main method
 }
